@@ -33,8 +33,8 @@ function crearFilas(productos) {
 
 mostrarSpinner();
 
-const uriML = "http://localhost:3000/mercadolibre";
-const uriTN = "http://localhost:3000/tiendanube";
+const uriML = "https://back-jlji.onrender.com/mercadolibre";
+const uriTN = "https://back-jlji.onrender.com/tiendanube";
 
 const ml = fetch(uriML)
     .then(response => { return response.json() })
