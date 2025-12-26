@@ -24,8 +24,12 @@ function crearFilas(productos) {
         const thCantidad = document.createElement("th");
         thCantidad.textContent = item.cantidad;
 
+        const thPlataforma = document.createElement("th");
+        thPlataforma.textContent = item.plataforma;
+
         tr.appendChild(thNombre);
         tr.appendChild(thCantidad);
+        tr.appendChild(thPlataforma);
 
         tbody.appendChild(tr);
     });
@@ -50,12 +54,14 @@ Promise.all([ml, tn])
     .then(([dataML, dataTN]) => {
         const infoML = dataML.body.map(item => ({
             nombre: item.title,
-            cantidad: item.available_quantity
+            cantidad: item.available_quantity,
+            plataforma: "ML"
         }));
 
         const infoTN = dataTN.map(item => ({
             nombre: (item.name?.es).replace(/(^\w|\s\w)/g, m => m.toUpperCase()),
-            cantidad: item.variants[0].stock
+            cantidad: item.variants[0].stock,
+            plataforma: "TN"
         }));
 
         allProductos = [...infoML, ...infoTN];
