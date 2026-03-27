@@ -35,13 +35,13 @@ function crearFilas(productos) {
     });
 }
 
-mostrarSpinner();
+// mostrarSpinner();
 
 const uriML = "https://back-jlji.onrender.com/mercadolibre";
 const uriTN = "https://back-jlji.onrender.com/tiendanube";
 
 const ml = fetch(uriML)
-    .then(response => { return response.json() })
+    .then(response => response.json())
     .catch((error) => console.error(error));
 
 const tn = fetch(uriTN)
@@ -52,7 +52,7 @@ let allProductos = [];
 
 Promise.all([ml, tn])
     .then(([dataML, dataTN]) => {
-        const infoML = dataML.body.map(item => ({
+        const infoML = dataML?.body?.map(item => ({
             nombre: item.title,
             cantidad: item.available_quantity,
             plataforma: "ML"
