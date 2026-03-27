@@ -35,7 +35,7 @@ function crearFilas(productos) {
     });
 }
 
-// mostrarSpinner();
+mostrarSpinner();
 
 const uriML = "https://back-jlji.onrender.com/mercadolibre";
 const uriTN = "https://back-jlji.onrender.com/tiendanube";
